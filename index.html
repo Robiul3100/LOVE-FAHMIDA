@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>তোমাকে নিয়ে ভালোবাসার কথা — R + F ❤️</title>
+
+  <!-- ── SEO meta ────────────────────────────────────────── -->
+  <meta name="description" content="ভালোবাসার মানুষের জন্য একটি বিশেষ ইন্টার‍্যাক্টিভ পেজ — হৃদয় ছুঁলেই ভেসে ওঠে ভালোবাসার ছোট ছোট বার্তা, গ্যালাক্সি আকাশে মিটিমিটি তারা জ্বলে।" />
+  <meta name="keywords" content="ভালোবাসা, valobasha, love, romantic, R+F, heart, bangla love page, premium heart" />
+  <meta name="author" content="R + F" />
+  <meta name="robots" content="index, follow" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#02000a" />
+
+  <!-- ── Open Graph (social share preview) ───────────────── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="তোমাকে নিয়ে ভালোবাসার কথা ❤️" />
+  <meta property="og:description" content="হৃদয় ছুঁলেই ভেসে ওঠে ভালোবাসার ছোট ছোট বার্তা।" />
+  <meta property="og:locale" content="bn_BD" />
+
+  <!-- ── Twitter card ────────────────────────────────────── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="তোমাকে নিয়ে ভালোবাসার কথা ❤️" />
+  <meta name="twitter:description" content="হৃদয় ছুঁলেই ভেসে ওঠে ভালোবাসার ছোট ছোট বার্তা।" />
+
+  <!-- ── Favicon (inline heart, kono extra request lage na) ─ -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>" />
+
+  <!-- ── Font: SolaimanLipi ──────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.cdnfonts.com" />
+  <link href="https://fonts.cdnfonts.com/css/solaimanlipi" rel="stylesheet" />
+<style>
+  /* ============================================================
+   Tomar Jonno Valobasha — Style
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --heart-color:  #ff2d6b;
+  --title-color:  #ffe0ec;
+  --accent:       #ff6b9d;
+  --player-bg:    rgba(40, 10, 30, 0.82);
+  --player-border:rgba(255, 100, 160, 0.35);
+}
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  font-family: 'SolaimanLipi', sans-serif;
+  background: #02000a;
+  touch-action: manipulation;
+  overscroll-behavior: none;
+}
+
+/* ── Black galaxy background (nebula slowly shift kore) ──── */
+.galaxy {
+  position: fixed; inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 20% 28%, rgba(95,25,110,0.55) 0%, transparent 45%),
+    radial-gradient(circle at 82% 72%, rgba(30,35,130,0.50) 0%, transparent 46%),
+    radial-gradient(circle at 50% 50%, rgba(130,20,75,0.32) 0%, transparent 60%),
+    radial-gradient(circle at 70% 18%, rgba(60,15,90,0.4) 0%, transparent 40%),
+    #02000a;
+  animation: galaxyShift 26s ease-in-out infinite alternate;
+}
+@keyframes galaxyShift {
+  0%   { filter: hue-rotate(0deg);  transform: scale(1);    }
+  100% { filter: hue-rotate(28deg); transform: scale(1.08); }
+}
+
+/* ── Mitimiti tara (twinkling stars) ─────────────────────── */
+#stars-canvas {
+  position: fixed; inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── "R+F" particle love canvas ──────────────────────────── */
+#rf-canvas {
+  position: fixed; inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ── Bokeh floating glow ──────────────────────────────────── */
+.bokeh {
+  position: fixed;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,120,170,0.55) 0%, rgba(255,120,170,0) 70%);
+  filter: blur(4px);
+  z-index: 3;
+  pointer-events: none;
+  animation: bokehDrift linear infinite;
+}
+@keyframes bokehDrift {
+  0%   { transform: translateY(0) translateX(0) scale(0.8); opacity: 0; }
+  15%  { opacity: 0.8; }
+  85%  { opacity: 0.8; }
+  100% { transform: translateY(-120px) translateX(30px) scale(1.1); opacity: 0; }
+}
+
+/* ── Falling petals ───────────────────────────────────────── */
+.petal {
+  position: fixed;
+  top: -40px;
+  z-index: 4;
+  pointer-events: none;
+  font-size: 18px;
+  will-change: transform, opacity;
+  animation: petalFall linear forwards;
+}
+@keyframes petalFall {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.9; }
+  90%  { opacity: 0.9; }
+  100% { transform: translateY(105vh) translateX(var(--sway,40px)) rotate(360deg); opacity: 0; }
+}
+
+/* ── Cursor heart trail ───────────────────────────────────── */
+.cursor-heart {
+  position: fixed;
+  z-index: 9998;
+  pointer-events: none;
+  font-size: 14px;
+  transform: translate(-50%,-50%);
+  animation: cursorFade 0.9s ease-out forwards;
+}
+@keyframes cursorFade {
+  0%   { opacity: 0.9; transform: translate(-50%,-50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%,-90%) scale(0.4); }
+}
+
+/* ── Main wrapper ─────────────────────────────────────────── */
+.main-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 1.6rem 1rem;
+}
+
+/* ── Title ────────────────────────────────────────────────── */
+.title-area {
+  text-align: center;
+  animation: fadeSlideDown 1.2s ease both;
+}
+.main-title {
+  font-family: 'SolaimanLipi', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--title-color);
+  text-shadow: 0 0 18px rgba(255,100,160,0.7);
+  line-height: 1.3;
+}
+.sub-title {
+  font-family: 'SolaimanLipi', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #ffb3ce;
+  text-shadow: 0 0 24px rgba(255,60,140,0.8);
+  margin-top: 0.15rem;
+}
+.title-deco {
+  width: 60px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* ── Heart er jayga ───────────────────────────────────────── */
+.heart-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ── Vasoman message bubbles ──────────────────────────────── */
+.phrases-container {
+  z-index: 100;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.phrase-bubble {
+  position: absolute;
+  font-family: 'SolaimanLipi', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+  pointer-events: none;
+  background: rgba(50, 15, 50, 0.72);
+  border: 1px solid rgba(255, 120, 170, 0.45);
+  border-radius: 50px;
+  padding: 0.45em 1.1em;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 0 14px rgba(255,45,107,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
+  animation: phraseShoot var(--dur, 3.2s) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+@keyframes phraseShoot {
+  0%   { transform: translate(-50%,-50%) translate(0,0) scale(0.6) rotate(var(--rot,0deg)); opacity:0; }
+  12%  { opacity:1; transform: translate(-50%,-50%) translate(calc(var(--tx)*0.15),calc(var(--ty)*0.15)) scale(1) rotate(var(--rot,0deg)); }
+  65%  { opacity:1; transform: translate(-50%,-50%) translate(var(--tx),var(--ty)) scale(1) rotate(var(--rot,0deg)); }
+  100% { opacity:0; transform: translate(-50%,-50%) translate(calc(var(--tx)*1.1),calc(var(--ty)*1.25)) scale(0.85) rotate(var(--rot,0deg)); }
+}
+
+/* ── Premium heart (SVG, gradient + gloss + glow) ─────────── */
+.heart-btn {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s;
+}
+.heart-btn:active { transform: scale(0.95); }
+
+.premium-heart {
+  width: clamp(200px, 66vw, 300px);
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,0.5)) drop-shadow(0 0 30px rgba(255,45,107,0.75));
+  animation: heartBeat 1.8s ease-in-out infinite;
+}
+.ph-gloss { animation: glossShimmer 3.2s ease-in-out infinite; }
+
+@keyframes heartBeat {
+  0%,100% { transform: scale(1);    }
+  14%     { transform: scale(1.07); }
+  28%     { transform: scale(1);    }
+  42%     { transform: scale(1.05); }
+}
+@keyframes glossShimmer {
+  0%,100% { opacity: 0.45; }
+  50%     { opacity: 0.9;  }
+}
+
+.heart-glow {
+  position: absolute; width:78%; height:78%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,45,107,0.4) 0%, transparent 70%);
+  animation: glowPulse 1.8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes glowPulse {
+  0%,100% { opacity:0.7; transform:scale(1);    }
+  50%     { opacity:1;   transform:scale(1.15); }
+}
+
+/* ── Hint "chuye dekho" ───────────────────────────────────── */
+.click-hint {
+  position: absolute;
+  display: flex; flex-direction: column; align-items: center;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.click-hint span {
+  font-family: 'SolaimanLipi', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgba(255,230,240,0.92);
+  text-shadow: 0 0 10px rgba(255,100,160,0.85);
+  line-height: 1.3;
+  display: block;
+}
+.click-hint.hidden-hint { opacity: 0; }
+
+/* ── Click counter badge ──────────────────────────────────── */
+.click-counter {
+  font-family: 'SolaimanLipi', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #ffd6e7;
+  background: rgba(50, 15, 50, 0.55);
+  border: 1px solid rgba(255,120,170,0.35);
+  padding: 0.25em 0.9em;
+  border-radius: 50px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.click-counter.show { opacity: 1; transform: translateY(0); }
+
+/* ── Particles burst ──────────────────────────────────────── */
+.heart-particle {
+  position: fixed;
+  pointer-events: none;
+  font-size: clamp(12px, 3.5vw, 18px);
+  animation: particleFly 1.2s ease-out forwards;
+  z-index: 50;
+}
+@keyframes particleFly {
+  0%   { transform: translate(0,0) scale(1); opacity:1; }
+  100% { transform: translate(var(--dx),var(--dy)) scale(0.3); opacity:0; }
+}
+
+/* ── Music player ─────────────────────────────────────────── */
+.music-player {
+  width: 100%;
+  max-width: 340px;
+  background: var(--player-bg);
+  border: 1px solid var(--player-border);
+  border-radius: 18px;
+  padding: 0.7rem 1rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(255,45,107,0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.music-player.hidden {
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+}
+.play-btn {
+  background: var(--heart-color);
+  border: none; border-radius: 50%;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; flex-shrink: 0;
+  box-shadow: 0 0 14px rgba(255,45,107,0.6);
+  transition: transform 0.15s;
+}
+.play-btn:active { transform: scale(0.9); }
+.play-btn svg { width: 18px; height: 18px; color: #fff; }
+.player-info { flex: 1; min-width: 0; }
+.player-title {
+  font-family: 'SolaimanLipi', sans-serif;
+  font-size: 1rem; color: #ffd6e7;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  display: block; margin-bottom: 5px;
+}
+.progress-bar {
+  width: 100%; height: 4px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 2px; cursor: pointer; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--heart-color), #ff9dbf);
+  border-radius: 2px;
+  transition: width 0.3s linear;
+}
+.time-row {
+  display: flex; justify-content: space-between;
+  font-size: 0.65rem; color: rgba(255,200,220,0.6);
+  margin-top: 3px;
+}
+
+/* ── Love letter modal ────────────────────────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.2rem;
+  background: rgba(8, 3, 18, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.modal-overlay.show { opacity: 1; pointer-events: auto; }
+.modal-card {
+  position: relative;
+  width: 100%; max-width: 420px;
+  max-height: 80vh; overflow-y: auto;
+  background: linear-gradient(160deg, rgba(60,18,45,0.96), rgba(35,10,30,0.96));
+  border: 1px solid rgba(255,120,170,0.4);
+  border-radius: 22px;
+  padding: 1.8rem 1.5rem;
+  box-shadow: 0 10px 50px rgba(255,45,107,0.25);
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+  text-align: center;
+}
+.modal-overlay.show .modal-card { transform: translateY(0) scale(1); }
+.modal-card h3 {
+  font-family: 'SolaimanLipi', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #ffe0ec;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 14px rgba(255,100,160,0.6);
+}
+.modal-card p {
+  font-family: 'SolaimanLipi', sans-serif;
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #ffd6e7;
+  white-space: pre-line;
+}
+.modal-close {
+  margin-top: 1.4rem;
+  background: var(--heart-color);
+  border: none; color: #fff;
+  font-family: 'SolaimanLipi', sans-serif;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  padding: 0.5em 1.6em;
+  cursor: pointer;
+  box-shadow: 0 0 16px rgba(255,45,107,0.5);
+  transition: transform 0.15s;
+}
+.modal-close:active { transform: scale(0.93); }
+
+/* ── Entry animation ──────────────────────────────────────── */
+@keyframes fadeSlideDown {
+  from { opacity:0; transform:translateY(-20px); }
+  to   { opacity:1; transform:translateY(0);     }
+}
+
+/* ── Reduced motion (accessibility + low-power device) ────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .galaxy { animation: none; }
+}
+</style>
+</head>
+<body>
+
+  <!-- Black galaxy background -->
+  <div class="galaxy"></div>
+
+  <!-- Mitimiti tara -->
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- "R+F" particle love -->
+  <canvas id="rf-canvas"></canvas>
+
+  <noscript>
+    <p style="color:#ffd6e7;text-align:center;padding:2rem;font-family:'SolaimanLipi',sans-serif;">
+      এই পেজটি পুরোপুরি দেখতে অনুগ্রহ করে JavaScript চালু করো ❤️
+    </p>
+  </noscript>
+
+  <!-- Main content -->
+  <main class="main-wrapper">
+
+    <!-- Title -->
+    <div class="title-area">
+      <h1 class="main-title">তোমাকে নিয়ে আমার</h1>
+      <h2 class="sub-title">ভালোবাসার কথা ❤️</h2>
+      <div class="title-deco"></div>
+    </div>
+
+    <!-- Premium heart -->
+    <div class="heart-area">
+      <div id="phrases-container" class="phrases-container"></div>
+      <div id="heart-btn" class="heart-btn" role="button" tabindex="0" aria-label="Chuye dekho">
+        <div class="heart-glow"></div>
+        <svg class="premium-heart" viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="heartGrad" cx="38%" cy="30%" r="78%">
+              <stop offset="0%"   stop-color="#ff9ec1" />
+              <stop offset="32%"  stop-color="#ff3d77" />
+              <stop offset="100%" stop-color="#9e0033" />
+            </radialGradient>
+            <linearGradient id="glossGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="rgba(255,255,255,0.9)" />
+              <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#heartGrad)"
+            d="M50 86 C50 86 8 57 8 31 C8 16 19 7 31 7 C39 7 46 11 50 18 C54 11 61 7 69 7 C81 7 92 16 92 31 C92 57 50 86 50 86Z" />
+          <ellipse class="ph-gloss" cx="36" cy="27" rx="13" ry="8" fill="url(#glossGrad)" transform="rotate(-25 36 27)" />
+        </svg>
+        <div id="click-hint" class="click-hint">
+          <span>ছুঁয়ে দাও</span>
+          <span>আমাকে 💕</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Click counter -->
+    <div id="click-counter" class="click-counter"></div>
+
+    <!-- Music player (prothom click e ase) -->
+    <div id="music-player" class="music-player hidden">
+      <button id="play-btn" class="play-btn" aria-label="Gaan bajao">
+        <svg id="play-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        <svg id="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+      </button>
+      <div class="player-info">
+        <span class="player-title">🎵 Demo Gaan</span>
+        <div id="progress-bar" class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <div class="time-row">
+          <span id="current-time">0:00</span>
+          <span id="total-time">0:00</span>
+        </div>
+      </div>
+      <audio id="audio-el"></audio>
+    </div>
+
+  </main>
+
+  <!-- Love letter modal -->
+  <div id="letter-overlay" class="modal-overlay">
+    <div class="modal-card">
+      <h3>💌 তোমার জন্য একটা চিঠি</h3>
+      <p id="letter-body"></p>
+      <button class="modal-close" data-close="letter-overlay">বন্ধ করো</button>
+    </div>
+  </div>
+
+  <script>
+    /* ============================================================
+   Tomar Jonno Valobasha — Main script
+   ============================================================ */
+
+'use strict';
+
+/* Particle text (background e ja likhbe) */
+const PARTICLE_TEXT = 'R + F';
+
+/* Audio er URL. Prothome local file try kore, na pele demo gaan bajbe */
+const PRIMARY_MUSIC_URL = 'Bastar.mp3';
+const DEMO_MUSIC_URL    = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3';
+
+/* Surprise chithi (milestone / long-press e khulbe) */
+const LOVE_LETTERS = [
+  'প্রিয়,\nতুমি জানো না তুমি আমার কাছে কতটা মূল্যবান। তোমার ছোট ছোট কথাগুলোও আমার সারাদিন ভালো করে দেয়। ভালোবাসি, সবসময়। ❤️',
+  'তোমার সাথে কাটানো প্রতিটা মুহূর্ত আমার কাছে সম্পদ। তুমি পাশে থাকলে পৃথিবীটা আরও সুন্দর লাগে। 💕',
+  'হাজারবার বললেও কম হবে — তুমিই আমার সবচেয়ে সুন্দর অনুভূতি, আমার শান্তি, আমার ঘর। 🌹',
+  'কখনও ভেবো না তুমি একা। আমি আছি, ছিলাম, থাকব — তোমার প্রতিটা ভালো-খারাপ দিনে। ❤️',
+];
+
+/* Valobashar choto choto barta */
+const messages = [
+  "তোমাকে ভালোবাসি ❤️",
+  "তুমি আমার শান্তি",
+  "তোমার হাসি আমার দুর্বলতা",
+  "তুমি পাশে থাকলেই সব ভালো",
+  "তোমাকে ভেবে দিন শুরু হয়",
+  "তুমি আমার সবচেয়ে আপন",
+  "তোমার চোখে হারিয়ে যাই",
+  "তুমি আমার প্রিয় অনুভূতি",
+  "তোমাকে ছাড়া কিছু ভাবি না",
+  "তুমি আমার মনের শান্তি",
+  "তোমার কণ্ঠ আমার প্রিয় সুর",
+  "তুমি আমার ছোট্ট পৃথিবী",
+  "তোমাকে নিয়ে স্বপ্ন দেখি",
+  "তুমি আমার সকালের আলো",
+  "তোমার হাত ধরে রাখতে চাই",
+  "তুমি আমার প্রতিটা ভালো দিন",
+  "তোমাকে আজও প্রথম দিনের মতো ভালোবাসি",
+  "তুমি আমার হৃদয়ের ঘর",
+  "তোমার পাশে সময় থেমে যায়",
+  "তুমি আমার সবচেয়ে সুন্দর কারণ",
+  "তোমাকে দেখলেই মন ভালো হয়",
+  "তুমি আমার প্রিয় অভ্যাস",
+  "তোমার নাম আমার প্রিয় শব্দ",
+  "তুমি আমার মন খারাপের ওষুধ",
+  "তোমাকে আগলে রাখতে চাই",
+  "তুমি আমার ভালোবাসার মানে",
+  "তোমার হাসিতে আমার পৃথিবী",
+  "তুমি আমার শেষ ভাবনা প্রতি রাতে",
+  "তোমাকে নিয়ে বুড়ো হতে চাই",
+  "তুমি আমার প্রিয় গল্প",
+  "তোমার সাথে নীরবতাও সুন্দর",
+  "তুমি আমার হৃদস্পন্দন",
+  "তোমাকে ভালোবাসি, আজ আর সবসময় 💕",
+  "তুমি আমার সব দোয়ার উত্তর",
+  "তোমার চোখে আমি বাঁচি",
+  "তুমি আমার প্রিয় ঠিকানা",
+  "তোমাকে ভালোবেসে আমি সুখী",
+  "তুমি আমার মনের আকাশ",
+  "তোমার হাসি আমার রোদ",
+  "তুমি আমার প্রিয় মানুষ",
+  "তোমাকে নিয়ে আমার সব স্বপ্ন",
+  "তুমি আমার প্রতিটা ভালো লাগা",
+  "তোমার পাশে থাকাই আনন্দ",
+  "তুমি আমার নরম অনুভূতি",
+  "তোমাকে ভাবলেই মন হাসে",
+  "তুমি আমার চিরকালের ভালোবাসা",
+  "তোমার জন্য আমার হৃদয় খোলা",
+  "তুমি আমার প্রিয় দুর্বলতা",
+  "তোমাকে ছাড়া অসম্পূর্ণ আমি",
+  "তুমি আমার ভালোবাসার আলো ❤️",
+];
+
+/* ── State ───────────────────────────────────────────────── */
+let clickCount  = 0;
+let firstClick  = false;
+let usedIndexes = [];
+let isPlaying    = false;
+let letterIndex  = 0;
+let usingDemo    = false;
+
+/* ── DOM refs ────────────────────────────────────────────── */
+const heartBtn        = document.getElementById('heart-btn');
+const clickHint       = document.getElementById('click-hint');
+const phrasesContainer= document.getElementById('phrases-container');
+const clickCounterEl  = document.getElementById('click-counter');
+const musicPlayer     = document.getElementById('music-player');
+const playBtn         = document.getElementById('play-btn');
+const playIcon        = document.getElementById('play-icon');
+const pauseIcon       = document.getElementById('pause-icon');
+const progressFill    = document.getElementById('progress-fill');
+const currentTimeEl   = document.getElementById('current-time');
+const totalTimeEl     = document.getElementById('total-time');
+const progressBar     = document.getElementById('progress-bar');
+const audioEl         = document.getElementById('audio-el');
+const letterOverlay   = document.getElementById('letter-overlay');
+const letterBody      = document.getElementById('letter-body');
+
+/* ── Bengali digit helper ────────────────────────────────── */
+function toBn(n) {
+  return String(n).replace(/[0-9]/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+}
+
+/* ── Demo audio setup (fallback soho) ────────────────────── */
+audioEl.src = PRIMARY_MUSIC_URL;
+audioEl.load();
+
+/* ── Mitimiti tara canvas ────────────────────────────────── */
+(function initStars() {
+  const canvas = document.getElementById('stars-canvas');
+  const ctx    = canvas.getContext('2d');
+  let stars    = [];
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 150; i++) {
+      stars.push({
+        x:  Math.random() * canvas.width,
+        y:  Math.random() * canvas.height,
+        r:  Math.random() * 1.5 + 0.3,
+        a:  Math.random(),
+        da: (Math.random() * 0.008 + 0.002) * (Math.random() < 0.5 ? 1 : -1),
+      });
+    }
+  }
+  function draw() {
+    requestAnimationFrame(draw);
+    if (document.hidden) return; // tab hidden hole kaj na kore, battery bache
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const s of stars) {
+      s.a += s.da;
+      if (s.a <= 0 || s.a >= 1) s.da *= -1;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${s.a.toFixed(2)})`;
+      ctx.fill();
+    }
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();
+
+/* ── "R+F" particle love animation ───────────────────────── */
+(function initRFParticles() {
+  const canvas = document.getElementById('rf-canvas');
+  const ctx    = canvas.getContext('2d');
+  const colors = ['#ff2d6b', '#ff6b9d', '#ff9dbf', '#ffd0e0', '#ffffff'];
+  let particles = [];
+  let W = 0, H = 0;
+  const mouse = { x: -9999, y: -9999 };
+
+  function pick() { return colors[Math.floor(Math.random() * colors.length)]; }
+
+  function buildTargets() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+
+    const off = document.createElement('canvas');
+    off.width = W; off.height = H;
+    const o = off.getContext('2d');
+    o.fillStyle = '#fff';
+    o.textAlign = 'center';
+    o.textBaseline = 'middle';
+
+    let fs = Math.min(W * 0.34, H * 0.42);
+    o.font = `700 ${fs}px Arial, sans-serif`;
+    let tw = o.measureText(PARTICLE_TEXT).width;
+    const maxW = W * 0.85;
+    if (tw > maxW) { fs *= maxW / tw; o.font = `700 ${fs}px Arial, sans-serif`; }
+
+    o.fillText(PARTICLE_TEXT, W / 2, H / 2);
+    const data = o.getImageData(0, 0, W, H).data;
+
+    const gap = Math.max(5, Math.round(fs / 42));
+    const targets = [];
+    for (let y = 0; y < H; y += gap) {
+      for (let x = 0; x < W; x += gap) {
+        if (data[(y * W + x) * 4 + 3] > 128) targets.push({ x, y });
+      }
+    }
+    return targets;
+  }
+
+  function init() {
+    const targets = buildTargets();
+    particles = targets.map(t => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      tx: t.x, ty: t.y,
+      vx: 0, vy: 0,
+      size: 1.3 + Math.random() * 1.5,
+      color: pick(),
+    }));
+  }
+
+  function frame() {
+    requestAnimationFrame(frame);
+    if (document.hidden) return; // tab hidden hole pause, battery bache
+    ctx.clearRect(0, 0, W, H);
+    for (const p of particles) {
+      // target er dike taan
+      p.vx += (p.tx - p.x) * 0.013;
+      p.vy += (p.ty - p.y) * 0.013;
+      // mouse repel
+      const mdx = p.x - mouse.x, mdy = p.y - mouse.y;
+      const md  = mdx * mdx + mdy * mdy;
+      if (md < 6400) {
+        const d = Math.sqrt(md) || 1;
+        const f = (6400 - md) / 6400;
+        p.vx += (mdx / d) * f * 4;
+        p.vy += (mdy / d) * f * 4;
+      }
+      p.vx *= 0.86; p.vy *= 0.86;
+      p.x  += p.vx;  p.y  += p.vy;
+      ctx.fillStyle = p.color;
+      ctx.fillRect(p.x, p.y, p.size * 1.6, p.size * 1.6);
+    }
+  }
+
+  window.addEventListener('pointermove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+  window.addEventListener('pointerout', () => { mouse.x = -9999; mouse.y = -9999; });
+  let rt;
+  window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(init, 220); });
+
+  init();
+  frame();
+})();
+
+/* ── Bokeh floating glow ─────────────────────────────────── */
+(function initBokeh() {
+  for (let i = 0; i < 14; i++) {
+    const b = document.createElement('div');
+    b.className = 'bokeh';
+    const size = 30 + Math.random() * 80;
+    b.style.width  = size + 'px';
+    b.style.height = size + 'px';
+    b.style.left   = Math.random() * 100 + 'vw';
+    b.style.top    = Math.random() * 100 + 'vh';
+    b.style.animationDuration = (8 + Math.random() * 8) + 's';
+    b.style.animationDelay    = (-Math.random() * 10) + 's';
+    document.body.appendChild(b);
+  }
+})();
+
+/* ── Falling petals ──────────────────────────────────────── */
+(function initPetals() {
+  const petals = ['🌸','🌷','🌺','❤️','💗'];
+  setInterval(() => {
+    if (document.hidden) return;
+    const p = document.createElement('div');
+    p.className   = 'petal';
+    p.textContent = petals[Math.floor(Math.random() * petals.length)];
+    p.style.left  = Math.random() * 100 + 'vw';
+    p.style.fontSize = (14 + Math.random() * 14) + 'px';
+    p.style.setProperty('--sway', (Math.random() * 120 - 60).toFixed(0) + 'px');
+    p.style.animationDuration = (6 + Math.random() * 5) + 's';
+    document.body.appendChild(p);
+    p.addEventListener('animationend', () => p.remove());
+  }, 900);
+})();
+
+/* ── Cursor heart trail ──────────────────────────────────── */
+(function initCursorTrail() {
+  const hearts = ['❤️','💕','💖','💗'];
+  let last = 0;
+  function spawn(x, y) {
+    const now = Date.now();
+    if (now - last < 55) return;
+    last = now;
+    const h = document.createElement('div');
+    h.className   = 'cursor-heart';
+    h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+    h.style.left  = x + 'px';
+    h.style.top   = y + 'px';
+    h.style.fontSize = (10 + Math.random() * 8) + 'px';
+    document.body.appendChild(h);
+    h.addEventListener('animationend', () => h.remove());
+  }
+  window.addEventListener('pointermove', (e) => spawn(e.clientX, e.clientY));
+})();
+
+/* ── Repeat na kore message ana ──────────────────────────── */
+function getNextMessage() {
+  if (usedIndexes.length >= messages.length) usedIndexes = [];
+  let idx;
+  do { idx = Math.floor(Math.random() * messages.length); }
+  while (usedIndexes.includes(idx));
+  usedIndexes.push(idx);
+  return messages[idx];
+}
+
+/* ── Random direction e message dekhano ──────────────────── */
+function showPhrase() {
+  const el = document.createElement('div');
+  el.className   = 'phrase-bubble';
+  el.textContent = getNextMessage();
+
+  const heartRect     = heartBtn.getBoundingClientRect();
+  const containerRect = phrasesContainer.getBoundingClientRect();
+  const originX = heartRect.left + heartRect.width  / 2 - containerRect.left;
+  const originY = heartRect.top  + heartRect.height / 2 - containerRect.top;
+
+  el.style.left = originX + 'px';
+  el.style.top  = originY + 'px';
+
+  const angle = Math.random() * 360;
+  const rad   = (angle * Math.PI) / 180;
+  const dist  = 10 + Math.random() * 10;
+  const tx    = Math.cos(rad) * dist;
+  const ty    = Math.sin(rad) * dist - 30;
+  const rot   = (Math.random() * 20 - 10).toFixed(1);
+  const dur   = (2.8 + Math.random() * 0.8).toFixed(2);
+
+  el.style.setProperty('--tx',  tx.toFixed(1) + 'px');
+  el.style.setProperty('--ty',  ty.toFixed(1) + 'px');
+  el.style.setProperty('--rot', rot + 'deg');
+  el.style.setProperty('--dur', dur + 's');
+
+  phrasesContainer.appendChild(el);
+  el.addEventListener('animationend', () => el.remove());
+}
+
+/* ── Heart particle burst ────────────────────────────────── */
+function spawnParticles(x, y) {
+  const emojis = ['❤️','💕','💖','✨','💗','🌸'];
+  for (let i = 0; i < 6; i++) {
+    const p     = document.createElement('div');
+    p.className = 'heart-particle';
+    p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    const angle = (i / 6) * 360;
+    const dist  = 55 + Math.random() * 45;
+    const rad   = (angle * Math.PI) / 180;
+    p.style.cssText = `left:${x}px;top:${y}px;--dx:${(Math.cos(rad)*dist).toFixed(1)}px;--dy:${(Math.sin(rad)*dist-30).toFixed(1)}px`;
+    document.body.appendChild(p);
+    p.addEventListener('animationend', () => p.remove());
+  }
+}
+
+/* ── Choto click sound (WebAudio) ────────────────────────── */
+let audioCtx = null;
+function playClickSound() {
+  try {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc  = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(660, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(990, audioCtx.currentTime + 0.12);
+    gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.12, audioCtx.currentTime + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.25);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.26);
+  } catch (e) { /* sound na holeo problem nai */ }
+}
+
+/* ── Click counter update ────────────────────────────────── */
+function updateCounter() {
+  clickCounterEl.textContent = '❤️ ' + toBn(clickCount) + ' বার';
+  clickCounterEl.classList.add('show');
+}
+
+/* ── Surprise chithi (modal) ─────────────────────────────── */
+function openLetter() {
+  letterBody.textContent = LOVE_LETTERS[letterIndex % LOVE_LETTERS.length];
+  letterIndex++;
+  letterOverlay.classList.add('show');
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('show');
+}
+
+/* ── Heart e click ───────────────────────────────────────── */
+function handleHeartActivate() {
+  const rect = heartBtn.getBoundingClientRect();
+  const cx   = rect.left + rect.width  / 2;
+  const cy   = rect.top  + rect.height / 2;
+
+  if (!firstClick) {
+    firstClick = true;
+    clickHint.classList.add('hidden-hint');
+    musicPlayer.classList.remove('hidden');
+    if (audioEl.src) audioEl.play().catch(() => {}); // prothom click e gaan auto play
+  }
+
+  clickCount++;
+  updateCounter();
+  showPhrase();
+  spawnParticles(cx, cy);
+  playClickSound();
+
+  // Milestone e surprise chithi
+  if (clickCount === 10 || clickCount === 25 || clickCount === 50 || clickCount === 100) {
+    setTimeout(openLetter, 450);
+  }
+}
+
+heartBtn.addEventListener('click', handleHeartActivate);
+
+// Accessibility: keyboard diye activate (Enter ba Space)
+heartBtn.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+    e.preventDefault();
+    handleHeartActivate();
+  }
+});
+
+/* ── Long-press e chithi khulbe ──────────────────────────── */
+(function initLongPress() {
+  let timer = null;
+  const start  = () => { timer = setTimeout(openLetter, 700); };
+  const cancel = () => { if (timer) { clearTimeout(timer); timer = null; } };
+  heartBtn.addEventListener('pointerdown', start);
+  heartBtn.addEventListener('pointerup', cancel);
+  heartBtn.addEventListener('pointerleave', cancel);
+  heartBtn.addEventListener('pointercancel', cancel);
+})();
+
+/* ── Modal close handlers ────────────────────────────────── */
+document.querySelectorAll('.modal-close').forEach((btn) => {
+  btn.addEventListener('click', () => closeModal(btn.dataset.close));
+});
+letterOverlay.addEventListener('click', (e) => {
+  if (e.target === letterOverlay) letterOverlay.classList.remove('show');
+});
+
+/* ── Audio player ────────────────────────────────────────── */
+function formatTime(sec) {
+  if (isNaN(sec)) return '0:00';
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return `${m}:${s.toString().padStart(2, '0')}`;
+}
+
+playBtn.addEventListener('click', () => {
+  if (!audioEl.src) return;
+  isPlaying ? audioEl.pause() : audioEl.play().catch(() => {});
+});
+
+audioEl.addEventListener('play', () => {
+  isPlaying = true;
+  playIcon.style.display  = 'none';
+  pauseIcon.style.display = '';
+});
+audioEl.addEventListener('pause', () => {
+  isPlaying = false;
+  playIcon.style.display  = '';
+  pauseIcon.style.display = 'none';
+});
+audioEl.addEventListener('ended', () => {
+  isPlaying = false;
+  playIcon.style.display    = '';
+  pauseIcon.style.display   = 'none';
+  progressFill.style.width  = '0%';
+  currentTimeEl.textContent = '0:00';
+});
+audioEl.addEventListener('timeupdate', () => {
+  if (!audioEl.duration) return;
+  progressFill.style.width  = ((audioEl.currentTime / audioEl.duration) * 100) + '%';
+  currentTimeEl.textContent = formatTime(audioEl.currentTime);
+});
+audioEl.addEventListener('loadedmetadata', () => {
+  totalTimeEl.textContent = formatTime(audioEl.duration);
+});
+
+// Error handle: local gaan na pele demo gaan e fallback
+audioEl.addEventListener('error', () => {
+  if (!usingDemo) {
+    usingDemo = true;
+    audioEl.src = DEMO_MUSIC_URL;
+    audioEl.load();
+    if (firstClick) audioEl.play().catch(() => {});
+  } else {
+    const titleEl = document.querySelector('.player-title');
+    if (titleEl) titleEl.textContent = '⚠️ গান লোড করা যায়নি';
+    totalTimeEl.textContent = '--:--';
+  }
+});
+
+/* ── Progress bar seek (click + touch) ───────────────────── */
+function seekFromClientX(clientX) {
+  if (!audioEl.duration) return;
+  const rect = progressBar.getBoundingClientRect();
+  let ratio = (clientX - rect.left) / rect.width;
+  ratio = Math.min(1, Math.max(0, ratio));
+  audioEl.currentTime = ratio * audioEl.duration;
+}
+progressBar.addEventListener('click', (e) => seekFromClientX(e.clientX));
+progressBar.addEventListener('touchstart', (e) => {
+  if (e.touches[0]) seekFromClientX(e.touches[0].clientX);
+}, { passive: true });
+progressBar.addEventListener('touchmove', (e) => {
+  if (e.touches[0]) seekFromClientX(e.touches[0].clientX);
+}, { passive: true });
+
+/* ── Background scroll bondho, control block na kore ─────── */
+document.addEventListener('touchmove', (e) => {
+  if (e.target.closest && e.target.closest('.music-player, .modal-overlay')) return;
+  e.preventDefault();
+}, { passive: false });
+  </script>
+</body>
+</html>
