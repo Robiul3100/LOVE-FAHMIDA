@@ -464,8 +464,8 @@ html, body {
 
     <!-- Title -->
     <div class="title-area">
-      <h1 class="main-title">তোমাকে নিয়ে আমার</h1>
-      <h2 class="sub-title">ভালোবাসার কথা ❤️</h2>
+      <h1 class="main-title">ফাহমিদা,</h1>
+      <h2 class="sub-title">তুমিই আমার ভালোবাসা ❤️</h2>
       <div class="title-deco"></div>
     </div>
 
@@ -492,7 +492,6 @@ html, body {
         </svg>
         <div id="click-hint" class="click-hint">
           <span>ছুঁয়ে দাও</span>
-          <span>আমাকে 💕</span>
         </div>
       </div>
     </div>
@@ -507,7 +506,7 @@ html, body {
         <svg id="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
       </button>
       <div class="player-info">
-        <span class="player-title">🎵 Demo Gaan</span>
+        <span class="player-title">🎵 রূপবতী</span>
         <div id="progress-bar" class="progress-bar">
           <div id="progress-fill" class="progress-fill"></div>
         </div>
@@ -540,9 +539,8 @@ html, body {
 /* Particle text (background e ja likhbe) */
 const PARTICLE_TEXT = 'R + F';
 
-/* Audio er URL. Prothome local file try kore, na pele demo gaan bajbe */
-const PRIMARY_MUSIC_URL = 'Bastar.mp3';
-const DEMO_MUSIC_URL    = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3';
+/* Audio er URL */
+const PRIMARY_MUSIC_URL = 'https://raw.githubusercontent.com/Robiul3100/LOVE-FAHMIDA/main/F-rupoboti.mp3';
 
 /* Surprise chithi (milestone / long-press e khulbe) */
 const LOVE_LETTERS = [
@@ -612,7 +610,6 @@ let firstClick  = false;
 let usedIndexes = [];
 let isPlaying    = false;
 let letterIndex  = 0;
-let usingDemo    = false;
 
 /* ── DOM refs ────────────────────────────────────────────── */
 const heartBtn        = document.getElementById('heart-btn');
@@ -636,8 +633,9 @@ function toBn(n) {
   return String(n).replace(/[0-9]/g, d => '০১২৩৪৫৬৭৮৯'[d]);
 }
 
-/* ── Demo audio setup (fallback soho) ────────────────────── */
-audioEl.src = PRIMARY_MUSIC_URL;
+/* ── Audio setup (PRIMARY_MUSIC barbar loop kore bajbe) ──── */
+audioEl.src  = PRIMARY_MUSIC_URL;
+audioEl.loop = true;
 audioEl.load();
 
 /* ── Mitimiti tara canvas ────────────────────────────────── */
@@ -1002,18 +1000,11 @@ audioEl.addEventListener('loadedmetadata', () => {
   totalTimeEl.textContent = formatTime(audioEl.duration);
 });
 
-// Error handle: local gaan na pele demo gaan e fallback
+// Error handle: gaan load na hole player e janabe
 audioEl.addEventListener('error', () => {
-  if (!usingDemo) {
-    usingDemo = true;
-    audioEl.src = DEMO_MUSIC_URL;
-    audioEl.load();
-    if (firstClick) audioEl.play().catch(() => {});
-  } else {
-    const titleEl = document.querySelector('.player-title');
-    if (titleEl) titleEl.textContent = '⚠️ গান লোড করা যায়নি';
-    totalTimeEl.textContent = '--:--';
-  }
+  const titleEl = document.querySelector('.player-title');
+  if (titleEl) titleEl.textContent = '⚠️ গান লোড করা যায়নি';
+  totalTimeEl.textContent = '--:--';
 });
 
 /* ── Progress bar seek (click + touch) ───────────────────── */
